@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualizar item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombrec" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cantidad</ion-label>
+      <ion-input formControlName="cantidad" type="text" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de inicio</ion-label>
+      <ion-input formControlName="f_inicio" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha termino</ion-label>
+      <ion-input formControlName="f_final" type="text" required></ion-input>
+    </ion-item>
+
+
+    <ion-button class="ion-margin-top" type="submit" expand="block" color="success">Actualizar</ion-button>
+  </form>
+</ion-content>

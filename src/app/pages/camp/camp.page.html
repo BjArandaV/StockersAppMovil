@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">informacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<form #formulario="ngForm">
+
+  <ion-item>
+    <ion-label>Nombre informacion :</ion-label>
+    <ion-input type="text"   name="nombre"  [(ngModel)]="insertar.nombrec" required ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cantidad :</ion-label>
+    <ion-input type="text"   name="cantidad"  [(ngModel)]="insertar.cantidad" required ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fecha inicio :</ion-label>
+    <ion-datetime name="f_inicio" value="2020-12-15" min="2021-01" max="2035" [(ngModel)]="insertar.f_inicio" 
+    [dayShortNames]=""
+      displayFormat="DD MMM, YY"
+      monthShortNames="Enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre" required></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Fecha final :</ion-label>
+    <ion-datetime name="f_final" value="2020-12-15" min="2021-01" max="2035" [(ngModel)]="insertar.f_final" 
+    [dayShortNames]=""
+      displayFormat="DD MMM, YY"
+      monthShortNames="Enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre" required></ion-datetime>
+  </ion-item>
+  
+  <ion-button expand="block" color="success"[disabled]="formulario.invalid" (click)="guardar(insertar.nombrec,insertar.cantidad,insertar.f_inicio,insertar.f_final)"  >Guardar</ion-button>
+</form>
+</ion-content>

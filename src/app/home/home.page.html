@@ -1,0 +1,66 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+     <ion-title  class="ion-text-center">Stocker's</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/profile">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+  
+  <ion-button expand="block" fill="clear" routerLink="/camp">
+    Insertar item
+  </ion-button>
+
+</div>
+
+<div class="ion-padding">
+
+  <ion-infinite-scroll>
+
+   <ion-title class="ion-text-center">Informacion</ion-title>
+
+   <ion-list>
+    
+    <ion-item-sliding class="align-items-center" *ngFor="let record of ingreso; let i = index">
+
+     <ion-item>
+       
+      <ion-input cols="20" readonly="true" position="fidex"> Nombre informacion: {{record.nombrec}} <br> Cantidad: {{record.cantidad}} <br>Estado: {{record.estadoc}} <br> 
+        Fecha inicio: {{record.f_inicio}} <br> Fecha final: {{record.f_final}} </ion-input>
+
+
+        <div item-end>
+          
+            <button [routerLink]="['../pages/update-todo', record.id]"> <!-- falta modificar funcion-->
+              <ion-icon name="create" style="zoom:1.5"></ion-icon>
+            </button>
+          
+            <button (click)="remove(record.id)">
+              <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+            </button>
+         
+        </div>
+     </ion-item>
+
+     <ion-item-options side="end" (click)="cambiarestado(record.id)" >
+     <ion-item-option color="danger"> cambiar </ion-item-option>
+
+     </ion-item-options>
+
+    </ion-item-sliding>
+
+
+
+   </ion-list>
+     
+     
+    
+</ion-infinite-scroll>
+</div>
