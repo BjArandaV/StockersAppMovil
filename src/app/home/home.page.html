@@ -1,11 +1,16 @@
 
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
      <ion-title  class="ion-text-center">Stocker's</ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/profile">
         <ion-icon slot="icon-only" name="person"></ion-icon>
-      </ion-button>
+      </ion-button>  
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -37,19 +42,18 @@
 
 
         <div item-end>
-          
-            <button [routerLink]="['../pages/update-todo', record.id]"> <!-- falta modificar funcion-->
-              <ion-icon name="create" style="zoom:1.5"></ion-icon>
+            <button [routerLink]="['/update-todo/', record.id]"> <!-- falta modificar funcion-->
+              <ion-icon name="create" color="success" style="zoom:1.5"></ion-icon>
             </button>
           
             <button (click)="remove(record.id)">
-              <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+              <ion-icon name="trash" color="danger" style="zoom:1.5"></ion-icon>
             </button>
-         
         </div>
+
      </ion-item>
 
-     <ion-item-options side="end" (click)="cambiarestado(record.id)" >
+     <ion-item-options side="end" [routerLink]="''" >
      <ion-item-option color="danger"> cambiar </ion-item-option>
 
      </ion-item-options>

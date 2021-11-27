@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Actualizar item</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,12 +22,18 @@
 
     <ion-item>
       <ion-label position="floating">Fecha de inicio</ion-label>
-      <ion-input formControlName="f_inicio" type="text" required></ion-input>
+      <ion-datetime formControlName="f_inicio"  required value="2020-12-15" min="2021-01" max="2035" 
+    [dayShortNames]=""
+      displayFormat="DD MMM, YY"
+      monthShortNames="Enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre" required></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Fecha termino</ion-label>
-      <ion-input formControlName="f_final" type="text" required></ion-input>
+      <ion-datetime formControlName="f_final"  required value="2020-12-15" min="2021-01" max="2035" 
+    [dayShortNames]=""
+      displayFormat="DD MMM, YY"
+      monthShortNames="Enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre" required></ion-datetime>
     </ion-item>
 
 

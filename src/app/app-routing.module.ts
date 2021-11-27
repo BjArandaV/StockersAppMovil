@@ -37,7 +37,10 @@ const routes: Routes = [
   { path: 'camp',  loadChildren:  () =>
   import('./pages/camp/camp.module').then(m => m.CampPageModule),
    canActivate: [AuthGuard]},
-  { path: 'update-todo', loadChildren: './pages/update-todo/update-todo.module#UpdateTodoPageModule' },
+   {
+    path: 'update-todo/:id',
+    loadChildren: () => import('./pages/update-todo/update-todo.module').then( m => m.UpdateTodoPageModule)
+  },
 
 
 

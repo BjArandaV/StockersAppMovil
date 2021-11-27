@@ -3,6 +3,8 @@ import { map } from 'rxjs/operators';
 import { CrudService } from './../services/crud.service';
 //Import AngularFirestore to make Queries.
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,10 +13,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class HomePage {
 
   // declaciones
-  id: string;
+  id:string;
   doc: any;
-  
-  //base
   ingreso: {id: string; nombrec: string; cantidad: string; f_inicio: string; f_final: string; estadoc: string;} [];
   insertar: { estado: string;}[];
 
@@ -22,10 +22,13 @@ export class HomePage {
   constructor(
     //iniciar firestore
     private firestore: AngularFirestore,
-    private crudService: CrudService
+    private crudService: CrudService,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(){
+
   this.firestore.collection('/ingreso/', ref => ref.where ('estado', '==', "Vigente")).snapshotChanges().subscribe(res=>{
   if(res){
   this.ingreso = res.map(e=>{
@@ -43,11 +46,14 @@ export class HomePage {
   }
   })
 }
+async logOut(): Promise<void> {
+  await this.authService.logout();
+  this.router.navigateByUrl('login');
+}
 
 cambiarestado(id,estado=null){
   estado="vencido";
 
-  this.id = id;
   let insertar = {}
 
  insertar['estado'] = estado
@@ -58,7 +64,7 @@ cambiarestado(id,estado=null){
 
 remove(id) {
   console.log(id)
-  if (window.confirm('Estas seguro?')) {
+  if (window.confirm('¿Estas seguro que deseas eliminar este item?')) {
     this.crudService.delete(id)
   }
 } 

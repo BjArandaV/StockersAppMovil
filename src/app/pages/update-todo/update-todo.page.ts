@@ -4,8 +4,6 @@ import { CrudService } from './../../services/crud.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
 
-
-
 @Component({
   selector: 'app-update-todo',
   templateUrl: './update-todo.page.html',
@@ -44,7 +42,7 @@ export class UpdateTodoPage implements OnInit {
       estado: ['']
     })    
   }
-
+  
   onSubmit() {
     this.crudService.update(this.id, this.editForm.value)
   }

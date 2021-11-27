@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ['./camp.page.scss'],
 })
 export class CampPage implements OnInit {
-  
+  id:string;
   doc: any;
   insertar:{nombrec: string ; cantidad: string ; f_inicio: string ; f_final: string ; estado: string; };
   
@@ -25,6 +25,7 @@ export class CampPage implements OnInit {
 
   ngOnInit() {
    this.insertar = {nombrec : '' ,cantidad : '', f_inicio : '', f_final : '', estado : ''}  
+   this.id = this.route.snapshot.paramMap.get('id');
   }
   
   cambiofecha(event)
