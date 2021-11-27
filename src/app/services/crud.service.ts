@@ -5,8 +5,7 @@ import { Router } from "@angular/router";
 export class TODO {
   nombrec: string;
   cantidad: string;
-  f_inicio: string;
-  f_final: string;
+  f_ingreso: string;
   estado: string;
 }
 

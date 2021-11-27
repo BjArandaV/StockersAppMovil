@@ -15,7 +15,7 @@ export class HomePage {
   // declaciones
   id:string;
   doc: any;
-  ingreso: {id: string; nombrec: string; cantidad: string; f_inicio: string; f_final: string; estadoc: string;} [];
+  ingreso: {id: string; nombrec: string; cantidad: string; f_ingreso: string;estadoc: string;} [];
   insertar: { estado: string;}[];
 
 
@@ -36,8 +36,8 @@ export class HomePage {
       // recuperar datos
     nombrec: e.payload.doc.data()['nombrec'],
     cantidad: e.payload.doc.data()['cantidad'],
-    f_inicio: e.payload.doc.data()['f_inicio'],
-    f_final: e.payload.doc.data()['f_final'],
+    f_ingreso: e.payload.doc.data()['f_ingreso'],
+
     estadoc: e.payload.doc.data()['estado'],
     //
     id: e.payload.doc.id

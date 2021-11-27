@@ -34,12 +34,12 @@ export class ProfilePage implements OnInit {
 
   async updateName(): Promise<void> {
     const alert = await this.alertCtrl.create({
-      subHeader: 'Su Nombre',
+      subHeader: 'Ingresa tu nombre',
       inputs: [
         {
           type: 'text',
           name: 'fullName',
-          placeholder: 'Su Nombre',
+          placeholder: 'Tu Nombre',
           value: this.userProfile.fullName
         }
       ],
@@ -58,12 +58,12 @@ export class ProfilePage implements OnInit {
 
   async updateFono(): Promise<void> {
     const alert = await this.alertCtrl.create({
-      subHeader: 'Su Numero Celular',
+      subHeader: 'Ingresa numero telefonico',
       inputs: [
         {
           type: 'text',
           name: 'fono',
-          placeholder: 'Su Celular',
+          placeholder: 'Tu numero',
           value: this.userProfile.fono
         }
       ],
@@ -85,7 +85,7 @@ export class ProfilePage implements OnInit {
   async updateEmail(): Promise<void> {
     const alert = await this.alertCtrl.create({
       inputs: [
-        { type: 'text', name: 'newEmail', placeholder: 'su correo nuevo' },
+        { type: 'text', name: 'newEmail', placeholder: 'Nuevo correo' },
         { name: 'password', placeholder: 'Tu Contraseña', type: 'password' }
       ],
       buttons: [
@@ -96,7 +96,7 @@ export class ProfilePage implements OnInit {
             this.profileService
               .updateEmail(data.newEmail, data.password)
               .then(() => {
-                console.log('Email Changed Successfully');
+                console.log('Email cambiado con éxito');
               })
               .catch(error => {
                 console.log('ERROR: ' + error.message);
@@ -111,8 +111,8 @@ export class ProfilePage implements OnInit {
   async updatePassword(): Promise<void> {
     const alert = await this.alertCtrl.create({
       inputs: [
-        { name: 'newPassword', placeholder: 'Nueva Password', type: 'password' },
-        { name: 'oldPassword', placeholder: 'Antigua Password', type: 'password' }
+        { name: 'oldPassword', placeholder: 'Contraseña antigua', type: 'password' },
+        { name: 'newPassword', placeholder: 'Nueva contraseña', type: 'password' }
       ],
       buttons: [
         { text: 'Cancelar' },
@@ -120,8 +120,8 @@ export class ProfilePage implements OnInit {
           text: 'Guardar',
           handler: data => {
             this.profileService.updatePassword(
-              data.newPassword,
-              data.oldPassword
+              data.oldPassword,
+              data.newPassword
             );
           }
         }

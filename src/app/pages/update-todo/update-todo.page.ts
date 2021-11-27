@@ -26,8 +26,7 @@ export class UpdateTodoPage implements OnInit {
       this.editForm = this.formBuilder.group({
         nombrec: [data['nombrec']],
         cantidad: [data['cantidad']],
-        f_inicio: [data['f_inicio']],
-        f_final: [data['f_final']],
+        f_ingreso: [data['f_ingreso']],
         estado: [data['estado']]
       })
     });
@@ -37,12 +36,11 @@ export class UpdateTodoPage implements OnInit {
     this.editForm = this.formBuilder.group({
       nombrec: [''],
       cantidad: [''],
-      f_inicio: [''],
-      f_final: [''],
+      f_ingreso: [''],
       estado: ['']
     })    
   }
-  
+
   onSubmit() {
     this.crudService.update(this.id, this.editForm.value)
   }
