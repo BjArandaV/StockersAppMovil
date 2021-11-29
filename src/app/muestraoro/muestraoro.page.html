@@ -1,0 +1,75 @@
+
+<ion-header>
+
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+     <ion-title  class="ion-text-center">Stocker's</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/profile">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>  
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" size="small" color="medium" routerLink="/muestraplata">Ver joyas de plata</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" size="small" color="warning" routerLink="/camp2">Insertar joyas de oro</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
+
+<div class="ion-padding">
+
+  <ion-infinite-scroll>
+
+   <ion-title class="ion-text-center">Joyas de oro</ion-title> <!-- agregar secciones de categorias para mostrar-->
+
+   <ion-list>
+
+    <ion-item-sliding class="align-items-center" *ngFor="let record of joyasOro; let i = index">
+
+     <ion-item class="fondito">
+       
+      <ion-input cols="20" readonly="true" position="fidex"> 
+        Nombre informacion: {{record.nombrec}} <br> 
+        Cantidad: {{record.cantidad}} <br>
+        Estado: {{record.estadoc}} <br> 
+        Fecha de ingreso: {{record.f_ingreso}}</ion-input>
+
+        <div item-end>
+            <button [routerLink]="['/update-todo2/', record.id]"> 
+              <ion-icon name="create" color="success" style="zoom:1.5"></ion-icon>
+            </button>
+          
+            <button (click)="remove(record.id)">
+              <ion-icon name="trash" color="danger" style="zoom:1.5"></ion-icon>
+            </button>
+        </div>
+
+     </ion-item>
+     <ion-item-options side="end"> <!--futura opcion para calcular estimadas ganancias-->
+     <ion-item-option color="danger"> cambiar </ion-item-option>
+
+     </ion-item-options>
+    </ion-item-sliding>
+
+   </ion-list>
+
+</ion-infinite-scroll>
+<ion-button expand="block" size="small" color="primary" routerLink="/home">
+  Volver a inicio
+</ion-button>
+</div>
+</ion-content>

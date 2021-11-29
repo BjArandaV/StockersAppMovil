@@ -41,7 +41,28 @@ const routes: Routes = [
     path: 'update-todo/:id',
     loadChildren: () => import('./pages/update-todo/update-todo.module').then( m => m.UpdateTodoPageModule)
   },
-
+  { path: 'camp2',  loadChildren:  () =>
+  import('./pages/camp2/camp2.module').then(m => m.Camp2PageModule),
+   canActivate: [AuthGuard]},
+   {
+    path: 'muestraoro',
+    loadChildren: () =>
+      import('./muestraoro/muestraoro.module').then(m => m.MuestraoroPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'muestraplata',
+    loadChildren: () =>
+      import('./muestraplata/muestraplata.module').then(m => m.MuestraplataPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'update-todo2/:id',
+    loadChildren: () => import('./pages/update-todo2/update-todo2.module').then( m => m.UpdateTodo2PageModule)
+  },
+  { path: 'muestraplata', loadChildren: './muestraplata/muestraplata.module#MuestraplataPageModule' },
+ 
+  
 
 
 ];

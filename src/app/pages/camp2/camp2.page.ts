@@ -6,11 +6,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 // control formulario
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 @Component({
-  selector: 'app-camp',
-  templateUrl: './camp.page.html',
-  styleUrls: ['./camp.page.scss'],
+  selector: 'app-camp2',
+  templateUrl: './camp2.page.html',
+  styleUrls: ['./camp2.page.scss'],
 })
-export class CampPage implements OnInit {
+
+export class Camp2Page implements OnInit {
   id:string;
   doc: any;
   insertar:{nombrec: string ; cantidad: string ; f_ingreso: string ;estado: string; };
@@ -43,11 +44,11 @@ export class CampPage implements OnInit {
   insertar['f_ingreso'] = f_ingreso.slice (0, -19)
   insertar['estado'] = estado
 
-  this.firestore.collection('/joyasPlata/').add(insertar).then (() => {
+  this.firestore.collection('/joyasOro/').add(insertar).then (() => {
   this.insertar = {nombrec :  '', cantidad : '', f_ingreso: '',estado: ''}
     
   })
-  this.router.navigateByUrl('muestraplata');
+  this.router.navigateByUrl('muestraoro');
 
   }
 
